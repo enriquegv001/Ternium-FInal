@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 
-@st.cache
+
 def load_data():
     df = pd.read_csv("dfexplore (1).csv")
     #df = df[['Especialidad', 'Operaciones-Calidad', 'MTTO-DIMA', 'Comercial-Planeamiento', 'DIGI-SC','Resto-Soft', 'Apto/No Apto',	'Destacado Pym.1',	'Ingles']]
@@ -13,6 +13,8 @@ def load_data():
 
 df = load_data()
 
+
+@st.cache_data(experimental_allow_widgets=True)
 def show_explore_page():
     
     image = Image.open('Ternium.png')
