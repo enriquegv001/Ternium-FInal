@@ -16,6 +16,7 @@ def load_model():
 
 data = load_model()
 
+@st.cache_data(experimental_allow_widgets=True)
 def show_predict_page():
         
     image = Image.open('Ternium.png')
@@ -62,3 +63,8 @@ def show_predict_page():
         st.subheader(f"""¿El candidato ingresa?:\n
                      (Si = 1; No = 0)\n
                      {ingreso[0]}""")
+        
+
+
+
+###============= Rewrite with OOP ========================

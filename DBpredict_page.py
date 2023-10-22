@@ -13,31 +13,28 @@ def load_model():
 
 model = load_model()
 
+global x
 
-  
 def load_data():    
     uploaded_file = st.file_uploader("Choose a file")
     if uploaded_file is not None:
         x = pd.read_csv(uploaded_file)
         
-        ID = x.iloc[:, 1]
-        ID = np.array(ID)
+        ID = np.array(x.iloc[:, 0])
 
-        x = x.drop(x.columns[1], axis = 1)
+        #x = x.drop(x.columns[1], axis = 1)
         x = x.drop(x.columns[0], axis = 1)
-        
+        return x, ID
+    
     else:
-        st.write("""No se ha ingresado el archivo""")
+        #st.write("""No se ha ingresado el archivo""")
     #return x
     #x = pd.read_csv("ejemplo_Ternium.csv")
         # MANEJAMOS CSV
-        
-    return x, ID
+        return 0, 0
 
 
-
-
-
+@st.cache_data(experimental_allow_widgets=True)
 def show_DBpredict_page():
     
     image = Image.open('Ternium.png')
@@ -45,26 +42,30 @@ def show_DBpredict_page():
     
     st.title("Predicción de base de datos de ingresados:")
     
-    st.write("""Ingresa la base de datos con todos los registros (el error se quitará después de ello):""")
+    st.write("""Ingresa la base de datos con todos los registros:""")
     
-    x, ID = load_data()
-    # EMPLEAR MODELO
-    
-    result = model.predict(x)
-    
-    result_df = pd.DataFrame({'ID':ID, 'Ingresado':result})
-    
-    result_df = result_df.replace({'Ingresado': 1}, "Si")
-    result_df = result_df.replace({'Ingresado': 0}, "No")
-    
-    result_si = result_df[result_df["Ingresado"] == "Si"]
-    result_no = result_df[result_df["Ingresado"] == "No"]
+    uploaded_file = st.file_uploader("Choose a file")
+    if uploaded_file is not None:
+        x = pd.read_csv(uploaded_file)
+        
+        ID = np.array(x.iloc[:, 0])
 
-    st.dataframe(result_si)
-    
-    csv = result_si.to_csv(index=False).encode('utf-8')
-    
-    if csv is not None:
+        #x = x.drop(x.columns[1], axis = 1)
+        x = x.drop(x.columns[0], axis = 1)
+        
+        result = model.predict(x)
+            
+        result_df = pd.DataFrame({'ID':ID, 'Ingresado':result})
+        
+        result_df = result_df.replace({'Ingresado': 1}, "Si")
+        result_df = result_df.replace({'Ingresado': 0}, "No")
+            
+        result_si = result_df[result_df["Ingresado"] == "Si"]
+        result_no = result_df[result_df["Ingresado"] == "No"]
+
+        st.dataframe(result_si)
+            
+        csv = result_si.to_csv(index=False).encode('utf-8')
         st.write(csv)
         st.download_button(
             "Press to Download",
@@ -72,7 +73,8 @@ def show_DBpredict_page():
             "file.csv",
             "text/csv",
             key='download-csv'
-            )
+        )
+
     else:
-        st.write('')
-    
+        st.write("""No se ha ingresado el archivo""")
+
