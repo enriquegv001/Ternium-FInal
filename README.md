@@ -34,11 +34,11 @@ Ternium Hiring Web App is a Python web application built with Streamlit. It prov
    
 3. Follow the prompts and interact with the application to perform predictions and explore data.
 
-<!--## Credits
+## Credits
 
 - **Contact:** enriquegv001@gmail.com
 
-## License
+<!--## License
 
 This project is licensed under the [License Name] License - see the [LICENSE](LICENSE) file for details.
 
