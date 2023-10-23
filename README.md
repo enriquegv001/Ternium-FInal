@@ -13,14 +13,15 @@ Ternium Hiring Web App is a Python web application built with Streamlit. It prov
 
 1. Clone the repository:
    ```
-   git clone <repository_url>
+   git clone https://github.com/enriquegv001/Ternium-Final.git
    cd <repository_directory>
    ```
 
-2. Install the required dependencies:
+[comment]: <2. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
+>
 
 ## Usage
 
@@ -35,14 +36,14 @@ Ternium Hiring Web App is a Python web application built with Streamlit. It prov
 
 ## Credits
 
-- **Developed by:** [Your Name]
-- **Contact:** [Your Email Address]
+- **Contact:** enriquegv001@gmail.com
 
-## License
+[comment]:<## License
 
 This project is licensed under the [License Name] License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Badges
 
 [![License](https://img.shields.io/badge/License-[License Code]-blue.svg)](LICENSE)
-
+>
