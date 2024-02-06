@@ -17,11 +17,11 @@ Ternium Hiring Web App is a Python web application built with Streamlit. It prov
    cd <repository_directory>
    ```
 
-<!--2. Install the required dependencies:
+2. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
--->
+
 
 ## Usage
 
