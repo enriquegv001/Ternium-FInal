@@ -1,6 +1,6 @@
 # Ternium hiring ML web app 
 
-Ternium Hiring Web App is a Python web application built with Streamlit. It provides functionality for predicting candidate suitability based on various attributes, analyzing data, and making database predictions.
+Ternium Hiring Web App is a Python web application built with Streamlit. It provides functionality for predicting candidate suitability based on various attributes, analyzing data, and making database predictions. [Example Video](https://www.youtube.com/watch?v=xzdINz_dUGw&ab_channel=EnriqueGarc%C3%ADa)
 
 ## Table of Contents
 - [Installation](#installation)
